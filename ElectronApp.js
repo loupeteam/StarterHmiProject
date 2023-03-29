@@ -2,7 +2,7 @@
 
 const electron = require('electron');
 const defaultHtmlName = 'Index.html';
-const htmlRoot = '/HMI/';
+const htmlRoot = '/app/';
 const fs = require('fs');
 const path = require('path');
 const { dialog, BrowserWindow } = require('electron');
