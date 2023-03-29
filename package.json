@@ -1,5 +1,5 @@
 {
-  "name": "@loupeteam/StarterHmiProject",
+  "name": "@loupeteam/starterhmiproject",
   "version": "0.1.0",
   "description": "A template to bootstrap client UI development based on webHMI",
   "main": "ElectronApp.js",
@@ -31,7 +31,6 @@
     "electron-packager": "^16.0.0",
     "electron-rebuild": "^3.2.9"
   },
-  "private": true,
   "license": "SEE LICENSE.txt",
   "author": "Ryan Jones",
   "homepage": "http://Loupe.team/"
