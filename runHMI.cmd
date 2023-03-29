@@ -1,0 +1,1 @@
+%~dp0\Electron\node_modules\.bin\electron  %~dp0\Electron\ElectronApp.js
