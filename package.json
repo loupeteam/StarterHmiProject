@@ -1,18 +1,18 @@
 {
-  "name": "webHMI",
-  "productName": "webHMi",
+  "name": "@loupeteam/StarterHmiProject",
   "version": "0.1.0",
-  "description": "webHMI",
+  "description": "A template to bootstrap client UI development based on webHMI",
   "main": "ElectronApp.js",
   "scripts": {
     "start": "electron ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "url": "git+https://github.com/loupeteam/StarterHmiProject.git"
   },
   "dependencies": {
     "@electron/remote": "^2.0.8",
+    "@loupeteam/webhmi": "^1.3.1",
     "ftp": "^0.3.10",
     "ftp-client": "^0.2.2",
     "handlebars": "^4.7.7",
@@ -28,7 +28,7 @@
     "electron-rebuild": "^3.2.9"
   },
   "private": true,
-  "license": "UNLICENSED",
+  "license": "SEE LICENSE.txt",
   "author": "Ryan Jones",
   "homepage": "http://Loupe.team/"
 }
