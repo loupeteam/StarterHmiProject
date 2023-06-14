@@ -1,0 +1,15 @@
+
+TYPE
+	PERM_enum : 
+		(
+		PERM_CONFIGURATION,
+		PERM_HOME_DATA,
+		PERM_AXIS_PARS,
+		PERM_AXIS_CFG,
+		PERM_
+		);
+	AtnTerminal_typ : 	STRUCT 
+		Command : STRING[80];
+		Console : ARRAY[0..100]OF STRING[80];
+	END_STRUCT;
+END_TYPE

@@ -1,0 +1,15 @@
+VAR
+	index : INT;
+END_VAR
+VAR CONSTANT
+	PLCOpenCall_MAI : INT := PLCOpenCall_NUM-1;
+	PLCOpenCall_NUM : INT := 10;
+END_VAR
+VAR
+	AtnPLCOpenCall : ARRAY[0..PLCOpenCall_MAI] OF AtnPLCOpen;
+	refreshState : BOOL;
+	systemState : STRING[50000];
+	readState : ARRAY[0..PLCOpenCall_MAI] OF readState_typ;
+	line : INT;
+	commandFilter : STRING[50];
+END_VAR

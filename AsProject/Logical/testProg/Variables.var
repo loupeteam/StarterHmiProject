@@ -1,0 +1,4 @@
+VAR
+	test : BOOL;
+	PLCOpenStatus : AtnPlcOpenStatus;
+END_VAR
