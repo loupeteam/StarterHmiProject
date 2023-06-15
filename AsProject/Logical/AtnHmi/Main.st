@@ -6,7 +6,7 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 
-	atncyclic( ADR(gConsole.Console), SIZEOF(gConsole.Console) );
+	atncyclic( ADR(gConsole.Command), SIZEOF(gConsole.Command) );
 	
 	IF refreshState THEN
 		refreshState := FALSE;
