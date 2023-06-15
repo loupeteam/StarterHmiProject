@@ -417,7 +417,7 @@ var keysNum = {
 $('input').keyboard(keysNum);
 $(document).on( {click:function(){
   $this = $(this)
-  if( !$this.getkeyboard() ){
+  if( !$this.getkeyboard() && !$this.hasClass("no-keyboard")){
     
     if( this.classList.contains('webhmi-num-value') ){
       $this.keyboard(keysNum)
@@ -426,7 +426,7 @@ $(document).on( {click:function(){
     {
       $this.keyboard(keysQwerty)
     }
-    $this.getkeyboard().reveal()  
+    this.getkeyboard().reveal()
 
   } 
 }},'input:not( [type=checkbox] )');
