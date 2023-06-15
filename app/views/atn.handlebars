@@ -3,12 +3,12 @@
     <span data-var-name="AtnHmi:AtnPLCOpenCall"/>
     <span data-var-name="AtnHmi:readState"/>
     <div class="input-group">
-      <div class="input-group-btn">
+      <div class="input-group-btn" id="atnCommandDropDown">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Command<span class="caret"></span></button>
         <ul class="dropdown-menu" id="atnCommand">
         </ul>
       </div>
-      <input type="text" class="form-control webhmi-text-value" aria-label="..." data-var-name="AtnHmi:AtnPLCOpenCall[0].Command">
+      <input type="text" class="form-control webhmi-text-value" aria-label="..." data-var-name="AtnHmi:AtnPLCOpenCall[0].Command" onchange="filterCommand(this)" onkeyup="filterCommand(this)">
       <span type="button" class="webhmi-btn-toggle webhmi-led input-group-addon" data-var-name="AtnHmi:AtnPLCOpenCall[0].Execute" id="basic-addon2"> Execute </span>
     </div>
     <table class="table">
@@ -41,12 +41,12 @@
 </div>
 <div>
     <div class="input-group">
-      <div class="input-group-btn">
+      <div class="input-group-btn" id="atnStateDropDown">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Status<span class="caret"></span></button>
         <ul class="dropdown-menu" id="atnState">
         </ul>
       </div>
-      <input type="text" class="form-control webhmi-text-value" aria-label="..." data-var-name="AtnHmi:readState[0].State">
+      <input type="text" class="form-control webhmi-text-value" aria-label="..." data-var-name="AtnHmi:readState[0].State" onchange="filterState(this)">
     </div>
     <div class="webhmi-text-value" data-var-name="AtnHmi:readState[0].Status[0]"></div>
     <div class="webhmi-text-value" data-var-name="AtnHmi:readState[0].Status[1]"></div>
