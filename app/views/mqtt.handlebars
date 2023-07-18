@@ -1,0 +1,40 @@
+{{#widget 'LabeledColumns' 'MQTT Publisher' maxColumns=2 }}
+    {{#widget 'LabeledColumns' style='grid-column:span 2;' maxColumns=2}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{widget 'Button' 'Connect' 'set' class="btn-success"}}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{#widget 'LabeledColumns' 'Required Arguments' maxColumns=1 }}
+            {{/widget}}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{widget 'Button' 'Disconnect' 'set' class="btn-danger"}}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{widget 'LabeledTextInput' "Broker Address"}}
+            {{widget 'LabeledTextInput' "Broker Port"}}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{widget 'LabeledLed' 'Connected' }}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{widget 'LabeledTextInput' "Client ID"}}
+            {{widget 'LabeledLed' 'Persistant Data' }}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{#widget 'LabeledColumns' 'Optional Arguments' maxColumns=1 }}
+            {{/widget}}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+        {{/widget}}
+        {{#widget}}
+            {{widget 'LabeledTextInput' "Username"}}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{widget 'LabeledTextInput' "Username"}}
+            {{widget 'LabeledTextInput' "Password"}}
+        {{/widget}}
+    {{/widget}}
+{{/widget}}

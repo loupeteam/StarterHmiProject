@@ -79,6 +79,10 @@
         {
             "name": "components",
             "file": "./views/components.handlebars"
+        },
+        {
+            "name": "mqtt",
+            "file": "./views/mqtt.handlebars"
         }
       
     ],
