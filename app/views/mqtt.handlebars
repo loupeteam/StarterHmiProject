@@ -1,40 +1,102 @@
-{{#widget 'LabeledColumns' 'MQTT Publisher' maxColumns=2 }}
-    {{#widget 'LabeledColumns' style='grid-column:span 2;' maxColumns=2}}
+{{#widget 'Columns' maxColumns=2 }}
+    {{#widget 'LabeledColumns' 'MQTT Connection' maxColumns=1 }}
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{widget 'LabeledLed' 'Connected' }}
+        {{/widget}}
         {{#widget 'Columns' style='' maxColumns=4}}
             {{widget 'Button' 'Connect' 'set' class="btn-success"}}
-        {{/widget}}
-        {{#widget 'Columns' style='' maxColumns=4}}
-            {{#widget 'LabeledColumns' 'Required Arguments' maxColumns=1 }}
-            {{/widget}}
-        {{/widget}}
-        {{#widget 'Columns' style='' maxColumns=4}}
             {{widget 'Button' 'Disconnect' 'set' class="btn-danger"}}
+        {{/widget}}
+        </br>
+        {{#widget 'Columns' style='' maxColumns=4}}
+            {{widget 'LabeledColumns' 'Required Arguments' maxColumns=1 }}
         {{/widget}}
         {{#widget 'Columns' style='' maxColumns=4}}
             {{widget 'LabeledTextInput' "Broker Address"}}
             {{widget 'LabeledTextInput' "Broker Port"}}
         {{/widget}}
         {{#widget 'Columns' style='' maxColumns=4}}
-            {{widget 'LabeledLed' 'Connected' }}
-        {{/widget}}
-        {{#widget 'Columns' style='' maxColumns=4}}
             {{widget 'LabeledTextInput' "Client ID"}}
             {{widget 'LabeledLed' 'Persistant Data' }}
         {{/widget}}
+        </br>
         {{#widget 'Columns' style='' maxColumns=4}}
-        {{/widget}}
-        {{#widget 'Columns' style='' maxColumns=4}}
-            {{#widget 'LabeledColumns' 'Optional Arguments' maxColumns=1 }}
-            {{/widget}}
-        {{/widget}}
-        {{#widget 'Columns' style='' maxColumns=4}}
-        {{/widget}}
-        {{#widget}}
-            {{widget 'LabeledTextInput' "Username"}}
+            {{widget 'LabeledColumns' 'Optional Arguments' maxColumns=1 }}
         {{/widget}}
         {{#widget 'Columns' style='' maxColumns=4}}
             {{widget 'LabeledTextInput' "Username"}}
             {{widget 'LabeledTextInput' "Password"}}
         {{/widget}}
     {{/widget}}
+    {{#widget 'LabeledColumns' 'Publisher Data and Options' maxColumns=1 }}
+        {{#widget 'Columns' style='' maxColumns=3}}
+            {{widget 'DirectoryBrowser'  data-var-name="HMI_CNC_Co:f.in.cwd" data-var-name-files="HMI_CNC_Co:Directory" data-var-name-willopen="HMI_CNC_Co:f.in.refresh"}}
+        {{/widget}}
+        {{#widget 'Columns' style='' maxColumns=2}}
+            {{widget 'Button' 'Populate Publishers from File' 'set' class="btn-success" }}
+            {{widget 'Button' 'Show/Hide Publishers Info' onclick="showHidePublishers()" class="btn-warning" }}
+        {{/widget}}
+    {{/widget}}
 {{/widget}}
+
+</br>
+</br>
+
+{{#widget 'LabeledColumns' maxColumns=4 class="hidden" id="PublisherInstances" }}
+    {{> mqttTemplate count=50}}
+{{/widget}}
+
+
+<script>
+    function showHidePublishers() {
+        var x = document.getElementById("PublisherInstances");
+
+        if (x.classList.contains("hidden")) {
+            $("#PublisherInstances").removeClass("hidden");
+        }
+        else {
+            $("#PublisherInstances").addClass("hidden");
+        }
+    }
+</script>
+
+<script id="mqttTemplate" type="text/x-handlebars-template">
+    {{#repeat count}}
+
+        {{#widget 'LabeledColumns' 'Publisher Instance' maxColumns=1 }}
+            {{#widget 'LabeledColumns' style='grid-column:span 2;' maxColumns=1}}
+                {{#widget 'Columns' style='' maxColumns=4}}
+                    {{widget 'LabeledLed' 'Enabled' }}
+                {{/widget}}
+                {{#widget 'Columns' style='' maxColumns=4}}
+                    {{widget 'LabeledTextInput' "Topic"}}
+                {{/widget}}
+                {{#widget 'Columns' style='' maxColumns=4}}
+                    {{widget 'LabeledTextInput' "PvName"}}
+                {{/widget}}
+                {{#widget 'Dropdown'}}
+                    <dropdown>
+                        <div class="option">Time</div>
+                        <div class="option">Trigger</div>
+                        <div class="option">Value</div>
+                        <div class="option">Time or Trigger</div>
+                        <div class="option">Time or Value</div>
+                        <div class="option">Trigger or Value</div>
+                        <div class="option">Time, Trigger, or Value</div>
+                    </dropdown>
+                {{/widget}}
+                {{#widget 'Columns' style='' maxColumns=4}}
+                    {{widget 'LabeledTextInput' "Sampling Time"}}
+                {{/widget}}
+                {{#widget 'Dropdown'}}
+                    <dropdown>
+                        <div class="option">0</div>
+                        <div class="option">1</div>
+                        <div class="option">2</div>
+                    </dropdown>
+                {{/widget}}
+            {{/widget}}
+        {{/widget}}
+
+    {{/repeat}}
+</script>
