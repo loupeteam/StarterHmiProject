@@ -1,0 +1,98 @@
+<div class="">
+    <table>
+        <thead>
+            <col width='160'>
+            <col width='160'>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Build Version:</td>
+                <td><code class="webhmi-text-value" data-var-name="gRevInfo_revision">Hash</code></td>
+            </tr>
+            <tr>
+                <td>Branch:</td>
+                <td><code class="webhmi-text-value" data-var-name="gRevInfo_branchName">Branch</code></td>
+            </tr>
+            <tr>
+                <td>Author:</td>
+                <td><code class="webhmi-text-value" data-var-name="gRevInfo_revisionAuthor">Author</code></td>
+            </tr>
+            <tr>
+                <td>Builder:</td>
+                <td><code class="webhmi-text-value" data-var-name="gRevInfo_builder">Builder</code></td>
+            </tr>
+            <tr>
+                <td>Server Address:</td>
+                <td><input type="text" class="rigidbtnWidth webhmi-text-value" data-machine-name="Configuration"
+                        data-var-name="ipAddress" /></td>
+            </tr>
+            <tr>
+                <td>CNC Folder:</td>
+                <td><input type="text" class="rigidbtnWidth webhmi-text-value" data-machine-name="Configuration"
+                        data-var-name="cncFolder" /></td>
+            </tr>
+            <tr>
+                <td>Robot Folder:</td>
+                <td><input type="text" class="rigidbtnWidth webhmi-text-value" data-machine-name="Configuration"
+                        data-var-name="robotFolder" /></td>
+            </tr>
+            <tr>
+                <td>Configuration File:</td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-btn-set" data-var-name="PermMemory:backupAll">Backup All</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-btn-set" data-var-name="PermMemory:forceGood">Force Overwrite All Backups</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Configuration Valid:</td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-led" data-var-name="gDataValid[0]">Config Data Valid</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-led" data-var-name="gDataValid[1]">Home Data Valid</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Configuration Size:</td>
+                <td>
+                    Old Size: <span class="webhmi-num-value" data-var-name="gPermDataSize[0]"> </span>
+                </td>
+                <td>
+                    New Size: <span class="webhmi-num-value" data-var-name="gPersister[0].OUT.STAT.RequiredMemory"> </span>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-btn-set" data-var-name="PermMemory:AcknowledgeSizeChange[0]">Acknowledge Size Change</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Homing data Size:</td>
+                <td>
+                    Old Size: <span class="webhmi-num-value" data-var-name="gPermDataSize[1]"> </span>
+                </td>
+                <td>
+                    New Size: <span class="webhmi-num-value" data-var-name="gPersister[1].OUT.STAT.RequiredMemory"> </span>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-btn-set" data-var-name="PermMemory:AcknowledgeSizeChange[1]">Acknowledge Homing Size Change</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Configuration Valid:</td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-btn-set" data-set-value="0" data-var-name="gDataValid[0]">Clear Config Data valid to reload</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-btn-set" data-set-value="0" data-var-name="gDataValid[1]">Clear Home Data is valid to reload</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Restore data</td>
+                <td>
+                    <button type="button" class="btn btn-default webhmi-btn-set" data-var-name="PermMemory:reboot">Reboot to restore from file</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

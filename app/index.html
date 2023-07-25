@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<!-- Bootstrap -->
+	<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="../node_modules/jquery-ui/themes/base/all.css" rel="stylesheet"></link>
+	<link href="libraries/keyboard/keyboard.css" rel="stylesheet">
+		<!-- webhmi -->
+	<link href="../node_modules/@loupeteam/webhmi/webhmi.css" rel="stylesheet">
+
+	<!-- Main Application css -->
+	<link href="css/main.css" rel="stylesheet">
+
+
+
+	<title>webHMI</title>
+</head>
+
+<body>
+
+	<!-- Begin page content -->
+	<div class="container" id="main">
+
+	</div>
+
+	<footer class="footer">
+		<div class="inline-left">
+			<p class="text-muted">&copy; Loupe</p>
+		</div>
+	</footer>
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="../node_modules/jquery/dist/jquery.min.js" onload="if('undefined' != typeof module) window.$ = window.jQuery = module.exports;"></script>
+	<script src="../node_modules/jquery-ui/ui/jquery-1-7.js"></script>
+
+	<script src="libraries/keyboard/jquery.keyboard.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- bootstrap -->
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<!-- include WebHMI -->
+	<script src="../node_modules/@loupeteam/webhmi/webhmi.js"></script>
+	<script src="../node_modules/@loupeteam/webhmi/webhmi-data-bind.js"></script>
+
+
+	<!-- include WebHMI extensions -->
+	<script src="../node_modules/@loupeteam/webhmi/webhmi-ext.js"></script>
+
+	<!--Lodash for tools-->
+	<script src="../node_modules/lodash/lodash.min.js"></script>
+
+	<!-- File Saver ( cnc editor helper) -->
+	<script src="libraries/FileSaver.js"></script>
+
+	<!-- snippets (graphs, app helper) -->
+	<script src="libraries/snippets.js"></script>
+	<!-- handlebars -->
+	<script src="libraries/handlebars.js" onload="HandlebarsExt()"></script>
+
+	<!--Load all the resources-->
+	<script src="libraries/widgets/widgets.js"></script>
+	<script src="libraries/widgets/components.js"></script>
+	<link href="libraries/widgets/widgets.css" rel="stylesheet">
+
+	<script src="components/controllers.js"></script>
+	
+	<script src="js/axisController.js"></script>
+	
+	<!--Load the model-->
+	<script async type="module" src="js/model.js"></script>
+
+	<!-- app -->
+	<script src="js/app.js"></script>
+</body>
+
+</html>
