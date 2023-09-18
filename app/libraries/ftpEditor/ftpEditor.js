@@ -117,7 +117,7 @@ var FTPEditor = function (options) {
         "statusElement": "#editorStatus",
         "dropdownElement": ".editorDropdown",
         "mainElement": "#floatingEditor",
-        "editorElement": "#editor",
+        "editorElement": "#editorDOM",
         "keepLocalFiles": false,
         "localFileName": "cncfile.txt",
         "loadURLvariable": false,
@@ -412,7 +412,7 @@ var FTPEditor = function (options) {
 
     //Delete Dialog
     var deleteDialog = function (path, fileName, callback) {
-        dialog.showMessageBox({ //Pop up confirmation window
+        dialog.showMessageBox(null, { //Pop up confirmation window
             type: "warning",
             buttons: ["Cancel", "Continue"],
             defaultId: 0,
@@ -420,7 +420,7 @@ var FTPEditor = function (options) {
             message: "Would you like to delete: " + fileName + " at: " + path,
             cancelId: 0,
             noLink: true //Prevent windows from reformatting
-        }, (response) => {
+        }).then( (response) => {
             //resonse: 0: cancel, 1: confirm
             callback(response);
         });
@@ -757,39 +757,62 @@ var FTPEditor = function (options) {
     //Import file
     this.import = function (path) {
         if (!path) {
-            path = dialog.showOpenDialog({
+            dialog.showOpenDialog({
                 properties: ['openFile']
-            });
-            if (!path) //Check if no file was selected
-                return 1;
-            else
-                path = path[0]; //Only use first file
+            }).then((results)=> {
+                if (results.canceled) //Check if no file was selected
+                    return 1;
+                else{
+                    path = results.filePaths[0]; //Only use first file
+                    let paths = path.split("\\");
+                    var fileName = paths[paths.length - 1]; //use last path in directory 
+                    scope.load(path, (success) => {
+                    if (success) {
+                        setStatus("File Imported", 1);
+                        scope.nameE.val(fileName);
+                    }
+                    });
+                }
+            })
         }
-
-        let paths = path.split("\\");
-        var fileName = paths[paths.length - 1]; //use last path in directory 
-        scope.load(path, (success) => {
+        else{
+            let paths = path.split("\\");
+            var fileName = paths[paths.length - 1]; //use last path in directory 
+            scope.load(path, (success) => {
             if (success) {
                 setStatus("File Imported", 1);
                 scope.nameE.val(fileName);
             }
-        });
-
+            });
+        };
     }
+       
+    
 
     //Export file
     this.export = function (path) {
-        if (!path)
-            path = dialog.showSaveDialog({
+        if (!path){
+            dialog.showSaveDialog({
                 properties: ['saveFile']
+            }).then((results)=> {
+                if (results.canceled){//Check if no file was selected
+                    return 1;
+                }else{
+                    scope.save(results.filePath, (success) => {
+                        if (success)
+                            setStatus("File Exported", 1);
+                    });
+                }
             });
-        if (!path) //Check if no file was selected
-            return 1;
-
-        scope.save(path, (success) => {
-            if (success)
-                setStatus("File Exported", 1);
-        });
+        }
+        // if (!path) //Check if no file was selected
+        //     return 1;
+        else{
+            scope.save(path, (success) => {
+                if (success)
+                    setStatus("File Exported", 1);
+            });
+        }
     }
 
     //Delete file from server
@@ -830,7 +853,7 @@ var FTPEditor = function (options) {
             //setStatus("ARSim Delete is not currently supported", 1);
             if ((scope.list.indexOf(scope.options.fileName)) != -1) {
                 deleteDialog(scope.options.simulationPath, scope.options.fileName, (response) => {
-                    if (response == 1) {
+                    if (response.response == 1) {
                         fs.unlinkSync(scope.options.simulationPath + scope.options.fileName);
                         setStatus(scope.options.fileName + " deleted!", 1);
                     } else {
@@ -907,7 +930,7 @@ var FTPEditor = function (options) {
     this.options = initOptions();
 
     // Init Code Mirror
-    this.code = $("#editor")[0];
+    this.code = $("#editorDOM")[0];
     this.editor = CodeMirror(scope.code, {
         lineNumbers: true,
         value: "",
@@ -915,7 +938,7 @@ var FTPEditor = function (options) {
         mode: this.options.mode
     });
     this.editor.setSize(null, "100%");
-    this.editor.refresh();
+    // this.editor.refresh();
 
     // Change event funtion for global data
     function didChange(newVal, oldVal) {
@@ -993,7 +1016,7 @@ var FTPEditor = function (options) {
             userClosed: true,
             openOn: '',
             // appendLocally: true,
-            position: { of: $("#editor"), // optional - null (attach to input/textarea) or a jQuery object (attach elsewhere)
+            position: { of: $("#editorDOM"), // optional - null (attach to input/textarea) or a jQuery object (attach elsewhere)
                 my: 'center top',
                 at: 'center bottom',
                 at2: 'center bottom', // used when "usePreview" is false (centers keyboard at bottom of the input/textarea)
@@ -1059,6 +1082,8 @@ var FTPEditor = function (options) {
         //setStatus("Initialized - file doesn't exist");
     });
 
+    setTimeout(() => {this.editor.refresh()}, 20);
+    this.editor.setSize(null, "100%");
     setStatus("Initialized", 0);
 }
 try{
@@ -1077,6 +1102,7 @@ var editor = new FTPEditor(
         theme: "friendship-bracelet"
     });
 }
-catch{
-    
+catch(e){
+    console.log('editor failed!');
+    $("#editorDOM").html("The G-Code Editor requires running in electron")
 }

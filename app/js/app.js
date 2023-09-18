@@ -9,23 +9,6 @@ var widgets = new Widgets("./widgets.json", (data)=>{
   widgets.loadPage( data.startPage.container, data.startPage.name)  
  })
   
-$(document).on({
-    mousedown: function (event) {
-      var $this = $(this);
-      var localMachine = window[WEBHMI.getMachineName($this)];
-      value = Configuration.port - 8000;
-      localMachine.writeVariable("ServoUser:activeConnection", value);
-    },
-    touchstart: function (event) {
-      var $this = $(this);
-      var localMachine = window[WEBHMI.getMachineName($this)];
-      value = Configuration.port - 8000;
-      localMachine.writeVariable("ServoUser:activeConnection", value);
-    }
-  },
-  "[jogControllerSet]"
-);
-
 
 function readServerFile(fileName) {
   let request = new XMLHttpRequest();

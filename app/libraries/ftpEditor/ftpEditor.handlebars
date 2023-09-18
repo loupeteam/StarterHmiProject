@@ -1,11 +1,11 @@
 <!-- codemirror -->
-<script src="libraries/codemirror/codemirror.js"></script>
-<link href="libraries/codemirror/codemirror.css" rel="stylesheet">
+<script src="./app/libraries/codemirror/codemirror.js"></script>
+<link href="./app/libraries/codemirror/codemirror.css" rel="stylesheet">
 
 <!-- Editor -->
 <div id="floatingEditor" class="/*windows-page*/">
 	<div id="alerts"></div>
-	<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+	<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editorDOM">
 		<div class="btn-group">
 			<button class="btn" type="button" onclick="editor.upload();" data-edit="save/upload" title="Save">
 				<span class="glyphicon glyphicon-floppy-disk"></span>
@@ -48,14 +48,15 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</button>
 	</div>
-	<div id="editor" class="CodeMirror" contenteditable="true">
-		The G-Code Editor requires running in electron
+	<div id="editorDOM" class="CodeMirror" contenteditable="true">
+		{{!-- The G-Code Editor requires running in electron --}}
 	</div>
 </div>
 <!-- Include JS files -->
-<script src="libraries/ftpEditor/ftpEditor.js"></script>
+<script src="./app/libraries/ftpEditor/ftpEditor.js"></script>
 <!-- Include CSS files -->
-<div css-include="libraries/ftpEditor/ftpEditor.css"></div>
+{{!-- <div css-include="./app/libraries/ftpEditor/ftpEditor.css"></div> --}}
+<link href="./app/libraries/ftpEditor/ftpEditor.css" rel="stylesheet">
 
 <template template-include=".ma-cnc-control-buttons">
 	<button type="button" class="btn " onclick="editor.toggle($('#cncfileinput').val());">

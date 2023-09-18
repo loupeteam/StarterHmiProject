@@ -3,6 +3,9 @@
  * NOTE: API will change 
  */
 
+//import * as d3 from "../../d3/dist/d3.js";
+const {d3} = await import("../../d3/dist/d3.js");
+
 function updateD3(newdata) {
     $('div.webhmi-chart:visible').each(function (index, element) {
         var $this = $(this);

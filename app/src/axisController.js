@@ -1,3 +1,5 @@
+import {viewDelegate} from "../../@loupeteam/tmplits/tmplits.js"
+
 export class axisData {
     constructor(){
         this.units = '[mm]'   
