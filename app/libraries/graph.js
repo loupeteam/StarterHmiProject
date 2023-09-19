@@ -4,8 +4,6 @@
  */
 
 //import * as d3 from "../../d3/dist/d3.js";
-const {d3} = await import("../../d3/dist/d3.js");
-
 function updateD3(newdata) {
     $('div.webhmi-chart:visible').each(function (index, element) {
         var $this = $(this);
@@ -417,15 +415,9 @@ function initGraphs() {
 }
 
 if(typeof d3 === 'undefined'){
-    if(typeof Snippets !== 'undefined'){
-        let d3Promise = Snippets.loadjsfile("libraries/d3.v5.min.js");
-        d3Promise.then(initGraphs, function(error){
-            throw error;
-            //console.error("Could not find: js/d3.v5.min.js")
-        });
-    } else {
-        console.error("graph.js requires d3.");
-    }
+        import("../../d3/dist/d3.js").then((d3)=>{
+            initGraphs();
+        })
 }
 else{
     initGraphs();
