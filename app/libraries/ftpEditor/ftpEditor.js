@@ -1099,7 +1099,8 @@ var editor = new FTPEditor(
         remoteDirPath: "F:/CNC_Prg/",
         simulation: typeof Configuration === 'undefined' ? true : (Configuration.ipAddress === '127.0.0.1' || Configuration.ipAddress === 'localhost') ? true : false ,
         simulationPath: "C:/ARSimUser/" + Configuration.cncFolder + "/CNC_Prg/",
-        theme: "friendship-bracelet"
+        theme: "friendship-bracelet",
+//        useKeyboard: true//We have a multiple jquery problem..
     });
 }
 catch(e){

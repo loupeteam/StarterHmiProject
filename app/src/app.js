@@ -11,6 +11,11 @@ import('./axisController.js').then(ns => {
   window['serviceAxis'] =  new axisController(0, num_axes);
 });
 
+import('./Keyboard.js').then(ns => {
+
+});
+
+
 //Create a new connection to the machine
 function createNewConnection(ip, port){
   window['machine'] = new WEBHMI.Machine({
