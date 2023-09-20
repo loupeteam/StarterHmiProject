@@ -1,7 +1,10 @@
 //Load the configuration file and start the connection
 import('./Configuration.js').then(module => {
-  window['Configuration'] = module.Configuration;
-  createNewConnection(Configuration.ipAddress, Configuration.port)  
+  module.configurationLoaded.then(Configuration => {
+    window['Configuration'] = Configuration;
+    createNewConnection(Configuration.ipAddress, Configuration.port)
+    window['exportConfiguration'] = module.exportConfiguration;
+  })
 })
 
 const num_axes = 3

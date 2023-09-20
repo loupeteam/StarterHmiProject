@@ -17,6 +17,10 @@
                 "file":"../views/robot.handlebars"
             },
             {
+                "name": "cnc",
+                "file":"../views/cnc.handlebars"
+            },
+            {
                 "name": "Piper",
                 "file":"../views/Piper.handlebars"
             },
