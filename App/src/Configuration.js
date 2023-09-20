@@ -3,37 +3,41 @@ import { saveAs } from '../libraries/FileSaver.js';
 var Configuration = new WEBHMI.HMI(() => {
 
 })
+const configfilename = 'Config.json';
 
 //Set the default configuration
 Configuration.port = 8000;
 Configuration.ipAddress = '127.0.0.1';
 Configuration.cncFolder = 'WebHMI';
+Configuration.robotFolder = 'TODO';
 
 //create a new promise to return
 let configurationLoaded = new Promise((resolve, reject) => {
+
     //Make an asynchronous xmlhttprequest to read the configuration file
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4 ){
-            if(request.status === 200 || request.status === 0) {
 
-                let configurationText = getActiveConfiguration(request.responseText);
+            //Get the configuration text
+            let configurationText = getActiveConfiguration(request.responseText);
 
-                //Read the datas
-                Configuration = Object.assign(Configuration, JSON.parse(configurationText))
-                resolve(Configuration);
-            }
-            else {
-                resolve(Configuration);
-            }
-        }
+            //Read the datas
+            Configuration = Object.assign(Configuration, JSON.parse(configurationText))
+
+            //Save the configuration to the local storage
+            ConfigurationChanged();
+
+            //Resolve the promise to tell the user we are done loading
+            resolve(Configuration);
     }
-    request.open('GET', '../OpenRobot.json', true);
+    }
+    request.open('GET', '../'+configfilename, true);
     request.send(null);
 });
 
 //Create a function to read the configuration
-Configuration.writeVariable = function (name, value) {
+Configuration.writeVariable = function (name, value) {    
     Configuration.value(name, value);
     ConfigurationChanged();
 };
@@ -43,8 +47,13 @@ Configuration.writeVariable = function (name, value) {
 //  If they are the same, it returns the local storage contents
 //  Otherwise it returns the file contents and updates the local storage contents
 function getActiveConfiguration( filecontents ) {
+
     let localStorageContent = window.localStorage.getItem('ConfigurationFileContents');
-    if (filecontents && localStorageContent && filecontents === localStorageContent) {
+
+    //If the file contents match the last save file contents in local storage
+    // OR if the file contents are empty, return the local storage configuration
+    //Otherwise return the file contents and update the local storage contents
+    if ((filecontents && localStorageContent && filecontents === localStorageContent) || !filecontents) {
         return localStorage.getItem('Configuration');
     }
     else{
@@ -67,7 +76,7 @@ export function ConfigurationChanged() {
 export function exportConfiguration(){
     let configurationText = JSON.stringify(Configuration);
     let blob = new Blob([configurationText], {type: "text/plain;charset=utf-8"});
-    saveAs(blob, "OpenRobot.json");
+    saveAs(blob, configfilename);
 }
 
 //Add a function to force loading from the file
