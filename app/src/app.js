@@ -4,6 +4,7 @@ import('./Configuration.js').then(module => {
     window['Configuration'] = Configuration;
     createNewConnection(Configuration.ipAddress, Configuration.port)
     window['exportConfiguration'] = module.exportConfiguration;
+    window['forceLoadConfiguration'] = module.forceLoadConfiguration;
   })
 })
 

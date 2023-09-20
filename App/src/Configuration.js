@@ -57,18 +57,24 @@ function getActiveConfiguration( filecontents ) {
 //  This function writes the configuration to the local storage
 //  It also writes the configuration to the file
 //  This function is called whenever the configuration is changed
-function ConfigurationChanged() {
+export function ConfigurationChanged() {
     localStorage.setItem('Configuration', JSON.stringify(Configuration))
 }
 
 //Create a function to export the configuration
 //  This function exports the configuration to a file
 //  It is also added to the window object so it can be called from the console
-function exportConfiguration(){
+export function exportConfiguration(){
     let configurationText = JSON.stringify(Configuration);
     let blob = new Blob([configurationText], {type: "text/plain;charset=utf-8"});
     saveAs(blob, "OpenRobot.json");
 }
 
-//Export the API
-export { configurationLoaded, ConfigurationChanged, exportConfiguration};
+//Add a function to force loading from the file
+//  This function is added to the window object so it can be called from the console
+export function forceLoadConfiguration(){
+    window.localStorage.removeItem('ConfigurationFileContents');
+    window.location.reload();
+}
+
+export {configurationLoaded}
