@@ -1,6 +1,25 @@
+//  To use the configuration you need to do something like this:
+
+//In ES6 moduels, the import can be done like this:
+/*
+import {configurationLoaded} from './Configuration.js'
+configurationLoaded.then(Configuration => {
+    //Your code here
+})  
+*/
+
+//In non ES6 modules, the import can be done like this:
+/*
+import('./Configuration.js').then(module => {
+    module.configurationLoaded.then(Configuration => {
+        //Your code here
+    })
+})
+*/
+
 import { saveAs } from '../libraries/FileSaver.js';
 
-var Configuration = new WEBHMI.HMI(() => {
+const Configuration = new WEBHMI.HMI(() => {
 
 })
 const configfilename = 'Config.json';
@@ -10,9 +29,11 @@ Configuration.port = 8000;
 Configuration.ipAddress = '127.0.0.1';
 Configuration.cncFolder = 'WebHMI';
 Configuration.robotFolder = 'TODO';
-
+Configuration.ConfigurationChanged = ConfigurationChanged;
+Configuration.exportConfiguration = exportConfiguration;
+Configuration.forceLoadConfiguration = forceLoadConfiguration;
 //create a new promise to return
-let configurationLoaded = new Promise((resolve, reject) => {
+const configurationLoaded = new Promise((resolve, reject) => {
 
     //Make an asynchronous xmlhttprequest to read the configuration file
     let request = new XMLHttpRequest();
@@ -23,14 +44,14 @@ let configurationLoaded = new Promise((resolve, reject) => {
             let configurationText = getActiveConfiguration(request.responseText);
 
             //Read the datas
-            Configuration = Object.assign(Configuration, JSON.parse(configurationText))
+            Object.assign(Configuration, JSON.parse(configurationText))
 
             //Save the configuration to the local storage
             ConfigurationChanged();
 
             //Resolve the promise to tell the user we are done loading
             resolve(Configuration);
-    }
+        }
     }
     request.open('GET', '../'+configfilename, true);
     request.send(null);
@@ -86,4 +107,4 @@ export function forceLoadConfiguration(){
     window.location.reload();
 }
 
-export {configurationLoaded}
+export {configurationLoaded, Configuration}

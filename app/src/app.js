@@ -1,12 +1,23 @@
 //Load the configuration file and start the connection
+//  This uses the import function to load the configuration file
+//  in ES6 moduels, the import can be done like this:
+//  import {configurationLoaded} from './Configuration.js'
+//  configurationLoaded.then(Configuration => {
+//  })  
 import('./Configuration.js').then(module => {
   module.configurationLoaded.then(Configuration => {
+
+    //Make the configuration available to the window
     window['Configuration'] = Configuration;
+
+    //Start the connection to the machine
     createNewConnection(Configuration.ipAddress, Configuration.port)
-    window['exportConfiguration'] = module.exportConfiguration;
-    window['forceLoadConfiguration'] = module.forceLoadConfiguration;
+
+    console.log('Configuration loaded in app.js')
   })
 })
+
+
 
 const num_axes = 3
 import('./axisController.js').then(ns => {

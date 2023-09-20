@@ -20,7 +20,7 @@
                 <td>Server Address:</td>
                 <td><input type="text" class="rigidbtnWidth webhmi-text-value" data-machine-name="Configuration"
                         data-var-name="ipAddress" /></td>
-                <td><input type="text" class="rigidbtnWidth webhmi-text-value" data-machine-name="Configuration"
+                <td><input type="text" class="rigidbtnWidth webhmi-num-value" data-machine-name="Configuration"
                         data-var-name="port" /></td>
             </tr>
             <tr>
@@ -37,8 +37,8 @@
             </tr>
             <tr>
                 <td></td>
-                <td> <button type="button" class="btn btn-default" onclick="exportConfiguration()">Export HMI Configuration</button></td>
-                <td> <button type="button" class="btn btn-default" onclick="forceLoadConfiguration()">Reload Default Configuration</button></td>
+                <td> <button type="button" class="btn btn-default" onclick="Configuration.exportConfiguration()">Export HMI Configuration</button></td>
+                <td> <button type="button" class="btn btn-default" onclick="Configuration.forceLoadConfiguration()">Reload Default Configuration</button></td>
             </tr>
             <tr>
                 <td></td>
