@@ -38,7 +38,9 @@ function createNewConnection(ip, port){
     ipAddress: ip,
     maxReconnectCount: 5000
   });
+  import('./InitCyclicReads.js')
 }
+
 
 //Setup the HMI refresh
 setInterval(WEBHMI.updateHMI, 30)

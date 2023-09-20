@@ -45,6 +45,8 @@
         background-color: rgb(243, 243, 243);
     }
 </style>
+<div data-read-group="Alarms">
+
 <span data-var-name="AlarmWrap:wrapper.internal.uiCoreConnect" ></span>
 <span data-var-name="AlarmWrap:coreNames" /></span>
 
@@ -93,6 +95,9 @@
     <div class="grid-item webhmi-text-value" data-var-name="AlarmWrap:wrapper.internal.uiCoreConnect.Details.Backtrace.Description[2]">Detail 3</div>
     <div class="grid-item webhmi-text-value" data-var-name="AlarmWrap:wrapper.internal.uiCoreConnect.Details.Backtrace.Description[3]">Detail 4</div>
 </div>
+
+</div>
+
 <script id="alarm-list-template" type="text/x-handlebars-template">
     {{#each alarm}}
     <div class="alarm-list-grid webhmi-led" data-var-name = "AlarmWrap:wrapper.internal.uiCoreConnect.AlarmList.SelectedIndex" data-set-value="{{index}}" data-reset-value="-1" onclick="setDetailIndex( {{index}} )">
