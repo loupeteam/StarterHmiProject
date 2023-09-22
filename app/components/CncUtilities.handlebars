@@ -1,7 +1,9 @@
 
 <!-- Building template with handle bars -->
 <script id="CNCModule" type="text/x-handlebars-template">
-    {{widget 'DirectoryBrowser'  data-var-name="HMI_CNC_Co:f.in.cwd" data-var-name-files="HMI_CNC_Co:Directory" data-var-name-willopen="HMI_CNC_Co:f.in.refresh"}}
+    <div data-read-group="directory">
+    {{widget 'DirectoryBrowser' data-var-name="HMI_CNC_Co:f.in.cwd" data-var-name-files="HMI_CNC_Co:Directory" data-var-name-willopen="HMI_CNC_Co:f.in.refresh"}}
+    </div>
 </script>
 <script id="CncConfig" type="text/x-handlebars-template">
 <div class="">

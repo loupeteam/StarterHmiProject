@@ -4,7 +4,7 @@
 /*        grid-template-columns: 200px 50px 50px 50px 140px 120px 350px;*/
         grid-template-columns: 200px 50px /*50px*/ 50px /*auto*/ auto auto;
         /*grid-auto-rows: 40px;*/
-        text-align: left;   
+        text-align: left;
         font-size: medium;
         border-radius: 5px;
         /*min-width: 960px;*/
@@ -45,8 +45,10 @@
         background-color: rgb(243, 243, 243);
     }
 </style>
-<span data-var-name="AlarmWrap:wrapper.internal.uiCoreConnect" />
-<span data-var-name="AlarmWrap:coreNames" />
+<div data-read-group="Alarms">
+
+<span data-var-name="AlarmWrap:wrapper.internal.uiCoreConnect" ></span>
+<span data-var-name="AlarmWrap:coreNames" /></span>
 
 <!-- core select -->
 <div id="core-select" class="inline-right">
@@ -93,6 +95,9 @@
     <div class="grid-item webhmi-text-value" data-var-name="AlarmWrap:wrapper.internal.uiCoreConnect.Details.Backtrace.Description[2]">Detail 3</div>
     <div class="grid-item webhmi-text-value" data-var-name="AlarmWrap:wrapper.internal.uiCoreConnect.Details.Backtrace.Description[3]">Detail 4</div>
 </div>
+
+</div>
+
 <script id="alarm-list-template" type="text/x-handlebars-template">
     {{#each alarm}}
     <div class="alarm-list-grid webhmi-led" data-var-name = "AlarmWrap:wrapper.internal.uiCoreConnect.AlarmList.SelectedIndex" data-set-value="{{index}}" data-reset-value="-1" onclick="setDetailIndex( {{index}} )">
@@ -123,8 +128,8 @@
                 index: i
             })
         }
-        widgets.pushTemplate('#alarm-list-table', 'alarm-list-template', context)
-   }
+        tmplits.pushTemplate('#alarm-list-table', 'alarm-list-template', context)
+    }
 
     machine.initCyclicRead("AlarmWrap:wrapper.out.activeAlarmInfo");
     machine.initCyclicRead("AlarmWrap:wrapper.out.activeAlarms");
@@ -143,7 +148,7 @@
 		<ul class="dropdown-menu">
 			{{#each cores}}
 			<li>
-				<a class="webhmi-btn-set" data-set-value="{{@index}}" data-reset-value="0" data-var-name="AlarmWrap:selectedIndex" href="#">
+				<a class="webhmi-btn-set" data-set-value="{{@index}}" data-reset-value="0" data-var-name="AlarmWrap:selectedIndex">
 					<div class="webhmi-text-value" data-var-name="AlarmWrap:coreNames[{{@index}}]">{{@index}}</div>
 				</a>
 			</li>
@@ -155,18 +160,18 @@
 </script>
 
 <script>
-    (function () {
-        // Get the template
-        var context = {
-            "cores": []
-        };
-        const NUM_CORES = 25;
-        for (let i = 0; i < NUM_CORES; i++) {
-            // Define our data object
-            context.cores.push({})
-        }
-        // Add the compiled html to the page
-        widgets.pushTemplate('#core-select', 'CoreSelectModule', context)
+        (function () {
+            // Get the template
+            var context = {
+                "cores": []
+            };
+            const NUM_CORES = 1;
+            for (let i = 0; i < NUM_CORES; i++) {
+                // Define our data object
+                context.cores.push({})
+            }
+            // Add the compiled html to the page
+            tmplits.pushTemplate('#core-select', 'CoreSelectModule', context)
 
-    })();
+        })();
 </script>

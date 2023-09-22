@@ -7,6 +7,11 @@ const fs = require('fs');
 const path = require('path');
 const { dialog, BrowserWindow } = require('electron');
 
+
+//Start the PLC simuator
+//TODO: Make this optional
+//require("plc-sim/index.js")
+
 // In the main process:
 require('@electron/remote/main').initialize()
 
