@@ -1,6 +1,6 @@
 {
   "name": "@loupeteam/starterhmiproject",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A template to bootstrap client UI development based on webHMI",
   "main": "ElectronApp.js",
   "scripts": {
