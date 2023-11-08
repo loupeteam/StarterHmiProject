@@ -1,3 +1,11 @@
+/*
+ * File: Keyboard.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
+ */
+
 // import "../../jquery/dist/jquery.js"
 import "../../jquery-ui/dist/jquery-ui.js"
 

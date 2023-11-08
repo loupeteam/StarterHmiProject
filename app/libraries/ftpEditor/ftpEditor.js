@@ -1,3 +1,11 @@
+/*
+ * File: ftpEditor.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
+ */
+
 /**
  * @author scottClaiborne
  * @version 0.01.1

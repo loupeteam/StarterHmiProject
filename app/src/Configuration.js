@@ -1,3 +1,11 @@
+/*
+ * File: Configuration.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
+ */
+
 //  To use the configuration you need to do something like this:
 
 //In ES6 moduels, the import can be done like this:

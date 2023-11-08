@@ -1,5 +1,9 @@
-/**
- *	
+/*
+ * File: model.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
  */
 
 import * as THREE from '../modules/three.module.js';
