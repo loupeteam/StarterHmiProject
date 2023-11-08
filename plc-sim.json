@@ -7,13 +7,13 @@
   "gMachine": {
     "IN": {
       "CMD": {
-        "Reset": 0,
-        "Stop": 0,
-        "Start": 0,
-        "Abort": 0,
-        "Clear": 0,
+        "Reset": "true",
+        "Stop": "true",
+        "Start": "true",
+        "Abort": "true",
+        "Clear": "true",
         "Hold": 0,
-        "Unhold": 0
+        "Unhold": "true"
       }
     }
   },
@@ -65,8 +65,8 @@
   "gRevInfo_revisionAuthor": 0,
   "gRevInfo_builder": 0,
   "gDataValid": [
-    1,
-    1
+    null,
+    "0"
   ],
   "PermMemory:AcknowledgeSizeChange": [
     false
@@ -76,7 +76,7 @@
       "cwd": 0
     }
   },
-  "HMI_CNC_Co:Directory": 0,
+  "HMI_CNC_Co:Directory": "0",
   "Trace:Configuration": {
     "Trace": [
       {
@@ -150,6 +150,38 @@
         },
         "PLCOpenDiscrete": {
           "Errorstop": 0
+        },
+        "Velocity": 0
+      },
+      "IN": {
+        "PAR": {
+          "JogVelocity": 0,
+          "JogAcceleration": 0,
+          "JogDeceleration": 0,
+          "Velocity": 0,
+          "Acceleration": 0,
+          "Deceleration": 0,
+          "Position": 0,
+          "Distance": 0
+        },
+        "Waypoint": [
+          {
+            "Position": 0,
+            "Velocity": 0,
+            "Acceleration": 0,
+            "Deceleration": 0,
+            "Name": 0
+          }
+        ],
+        "CMD": {
+          "Power": 0,
+          "JogReverse": 0,
+          "JogForward": 0,
+          "MoveAbsolute": 0,
+          "MoveAdditiveReverse": 0,
+          "MoveAdditiveForward": 0,
+          "MoveWaypoint": 0,
+          "Reference": 0
         }
       }
     },
@@ -234,5 +266,20 @@
       }
     }
   },
-  "AlarmWrap:selectedName": 0
+  "AlarmWrap:selectedName": 0,
+  "AxisBasic:Configuration": {
+    "Axis": [
+      {
+        "CFG": {
+          "HomingPosition": 0,
+          "HomingMode": 0
+        }
+      }
+    ]
+  },
+  "Trace:varVariables": 0,
+  "AlarmWrap:coreNames": [
+    0
+  ],
+  "PermMemory:reboot": true
 }
