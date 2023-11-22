@@ -108,7 +108,7 @@ $(document).on({
 		let $this = $(this)
 		if (!$this.getkeyboard()) {
 
-			if (this.classList.contains('webhmi-num-value')) {
+			if (this.classList.contains('lux-num-value')) {
 				$this.keyboard(keysNum)
 			}
 			else {

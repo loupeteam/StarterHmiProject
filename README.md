@@ -5,7 +5,7 @@ info@loupe.team
 1-800-240-7042  
 
 # Description
-The StarterHmiProject repo provides a webHMI-based starter HMI that includes all of the common utilities that most Loupe HMIs need. It is intended to be a good starting point for new applications. Note that this is a template that is intended to be modified after it has been installed. 
+The StarterHmiProject repo provides a Loupe UX-based starter HMI that includes all of the common utilities that most Loupe HMIs need. It is intended to be a good starting point for new applications. Note that this is a template that is intended to be modified after it has been installed. 
 
 # Getting Started
 
