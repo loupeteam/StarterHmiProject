@@ -1,3 +1,11 @@
+/*
+ * File: app.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
+ */
+
 //Load the configuration file and start the connection
 //  This uses the import function to load the configuration file
 //  in ES6 moduels, the import can be done like this:
@@ -33,7 +41,7 @@ import('./Keyboard.js').then(ns => {
 
 //Create a new connection to the machine
 function createNewConnection(ip, port){
-  window['machine'] = new WEBHMI.Machine({
+  window['machine'] = new LUX.Machine({
     port: port,
     ipAddress: ip,
     maxReconnectCount: 5000
@@ -43,7 +51,7 @@ function createNewConnection(ip, port){
 
 
 //Setup the HMI refresh
-setInterval(WEBHMI.updateHMI, 30)
+setInterval(LUX.updateHMI, 30)
 
 
 

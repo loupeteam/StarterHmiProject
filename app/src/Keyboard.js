@@ -1,3 +1,11 @@
+/*
+ * File: Keyboard.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
+ */
+
 // import "../../jquery/dist/jquery.js"
 import "../../jquery-ui/dist/jquery-ui.js"
 
@@ -100,7 +108,7 @@ $(document).on({
 		let $this = $(this)
 		if (!$this.getkeyboard()) {
 
-			if (this.classList.contains('webhmi-num-value')) {
+			if (this.classList.contains('lux-num-value')) {
 				$this.keyboard(keysNum)
 			}
 			else {

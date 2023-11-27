@@ -1,3 +1,11 @@
+/*
+ * File: ElectronApp.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
+ */
+
 'use strict';
 
 const electron = require('electron');

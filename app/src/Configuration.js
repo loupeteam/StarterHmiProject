@@ -1,3 +1,11 @@
+/*
+ * File: Configuration.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
+ */
+
 //  To use the configuration you need to do something like this:
 
 //In ES6 moduels, the import can be done like this:
@@ -19,7 +27,7 @@ import('./Configuration.js').then(module => {
 
 import { saveAs } from '../libraries/FileSaver.js';
 
-const Configuration = new WEBHMI.HMI(() => {
+const Configuration = new LUX.HMI(() => {
 
 })
 const configfilename = 'Config.json';
@@ -27,7 +35,7 @@ const configfilename = 'Config.json';
 //Set the default configuration
 Configuration.port = 8000;
 Configuration.ipAddress = '127.0.0.1';
-Configuration.cncFolder = 'WebHMI';
+Configuration.cncFolder = 'Lux';
 Configuration.robotFolder = 'TODO';
 Configuration.ConfigurationChanged = ConfigurationChanged;
 Configuration.exportConfiguration = exportConfiguration;

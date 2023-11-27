@@ -1,3 +1,11 @@
+/*
+ * File: InitCyclicReads.js
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of StarterHmiProject, licensed under the MIT License.
+ */
+
 machine.initCyclicReadGroup('Axis', "gMotorBasic")
 machine.initCyclicReadGroup('Axis', "AxisBasic:Configuration")
 machine.initCyclicReadGroup('Axis', "gAxisApi")
