@@ -57,7 +57,7 @@ is both brief and descriptive!
     We commonly use these branch name prefixes to clarify what the type of branch (re: GitFlow):
     
     - **feature** - ie `feature/update-protobuf-timestamps-to-utc`
-    - **release** - ie `release/1.0.0` or `release/epsilon` (see explanation below)
+    - **release** - ie `release/1.0.0` (see explanation below)
     - **hotfix** - ie `hotfix/fix-robotfast-page-fault`
     
     Less common, but useful:
@@ -146,7 +146,7 @@ Turn them to non-draft PRs when you are ready for a full review.**
 
 ### PR review
 
-For open source contributions, review is typically done asynchronously. In this format, the reviewer will read and make comments on the PR via GitHub, when they time and the author can respond in a similar manner. If quicker, more direct communication is desirable you are welcome to join the [SASE Slack workspace](https://sase.space/) and reach out in a relevant channel (`#platforms-br`, `#platforms-beckhoff`, `#vizualisation`, etc.). It’s up to the folks involved as to what method is ideal.
+For open source contributions, review is typically done asynchronously. In this format, the reviewer will read and make comments on the PR via GitHub, when they time and the author can respond in a similar manner. If quicker, more direct communication is desirable you are welcome to join the [SASE Slack workspace](https://sase.space/) and reach out in a relevant channel (`#platforms-br`, `#platforms-beckhoff`, `#visualisation`, etc.). It’s up to the folks involved as to what method is ideal.
 
 Generally, when a contributor opens a PR, a Loupe maintainer will try to either review promptly or communicate an expected timeline for review. Once a PR has been approved it will be merged in. Availability of Loupe devs is subject to change frequently and as such the timeline for the review process may vary.
 
