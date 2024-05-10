@@ -9,7 +9,7 @@
 'use strict';
 
 const electron = require('electron');
-const defaultHtmlName = 'Index.html';
+const defaultHtmlName = 'app/Index.html';
 const htmlRoot = '/app/';
 const fs = require('fs');
 const path = require('path');

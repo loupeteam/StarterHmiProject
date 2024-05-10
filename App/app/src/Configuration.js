@@ -30,7 +30,7 @@ import { saveAs } from '../libraries/FileSaver.js';
 const Configuration = new LUX.HMI(() => {
 
 })
-const configfilename = 'Config.json';
+const configfilename = 'app/Config.json';
 
 //Set the default configuration
 Configuration.port = 8000;
@@ -46,7 +46,7 @@ const configurationLoaded = new Promise((resolve, reject) => {
     //Make an asynchronous xmlhttprequest to read the configuration file
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-        if (request.readyState === 4 ){
+        if (request.readyState === 4) {
 
             //Get the configuration text
             let configurationText = getActiveConfiguration(request.responseText);
@@ -61,12 +61,12 @@ const configurationLoaded = new Promise((resolve, reject) => {
             resolve(Configuration);
         }
     }
-    request.open('GET', '../'+configfilename, true);
+    request.open('GET', '../' + configfilename, true);
     request.send(null);
 });
 
 //Create a function to read the configuration
-Configuration.writeVariable = function (name, value) {    
+Configuration.writeVariable = function (name, value) {
     Configuration.value(name, value);
     ConfigurationChanged();
 };
@@ -75,7 +75,7 @@ Configuration.writeVariable = function (name, value) {
 //  This function compares the file contents to the local storage contents
 //  If they are the same, it returns the local storage contents
 //  Otherwise it returns the file contents and updates the local storage contents
-function getActiveConfiguration( filecontents ) {
+function getActiveConfiguration(filecontents) {
 
     let localStorageContent = window.localStorage.getItem('ConfigurationFileContents');
 
@@ -85,8 +85,8 @@ function getActiveConfiguration( filecontents ) {
     if ((filecontents && localStorageContent && filecontents === localStorageContent) || !filecontents) {
         return localStorage.getItem('Configuration');
     }
-    else{
-        window.localStorage.setItem('ConfigurationFileContents', filecontents);    
+    else {
+        window.localStorage.setItem('ConfigurationFileContents', filecontents);
         return filecontents;
     }
 }
@@ -102,17 +102,17 @@ export function ConfigurationChanged() {
 //Create a function to export the configuration
 //  This function exports the configuration to a file
 //  It is also added to the window object so it can be called from the console
-export function exportConfiguration(){
+export function exportConfiguration() {
     let configurationText = JSON.stringify(Configuration);
-    let blob = new Blob([configurationText], {type: "text/plain;charset=utf-8"});
+    let blob = new Blob([configurationText], { type: "text/plain;charset=utf-8" });
     saveAs(blob, configfilename);
 }
 
 //Add a function to force loading from the file
 //  This function is added to the window object so it can be called from the console
-export function forceLoadConfiguration(){
+export function forceLoadConfiguration() {
     window.localStorage.removeItem('ConfigurationFileContents');
     window.location.reload();
 }
 
-export {configurationLoaded, Configuration}
+export { configurationLoaded, Configuration }
