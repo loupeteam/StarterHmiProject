@@ -14,8 +14,12 @@ To install using the Loupe Package Manager (LPM), run `lpm init` in an empty dir
 
 ### Running the HMI
 Perform the following steps:
-- In the root directory of the repo, run `npm install` from the command line. This creates the `node_modules` folder and installs packages the HMI depends on. 
-- Navigate into the `/app` folder, and run `npm install` again.
+- If you are not logged in with LPM, navigate to [Getting Started with LPM](https://loupeteam.github.io/LoupeDocs/tools/lpm/getting-started-with-lpm.html#logging-in) and copy the available token to the second line of `/app/.npmrc`, e.g:
+```
+//npm.pkg.github.com/:_authToken=<TOKEN>
+```
+If you are working in a private repository, this change can be tracked with git and not be necessary for future installs. If you are working in a public repo it is recommended to skip this step and login to LPM using the link above. 
+- Execute `installHMI.cmd` from the `/scripts` folder, to install the HMI.
 - You can then execute `runHMI.cmd` from the `/scripts` folder, and this will launch the HMI. 
 
 # Licensing
