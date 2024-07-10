@@ -1,6 +1,6 @@
 {
   "name": "@loupeteam/starterhmiproject",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A template to bootstrap client UI development based on Loupe UX",
   "main": "ElectronApp.js",
   "scripts": {
